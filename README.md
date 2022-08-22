@@ -55,3 +55,22 @@ curl -X POST http://localhost:8080/update/USD/1000
 ```
 
 ---------
+
+curl -X POST http://localhost:8080/update/GBP/782
+
+```
+2022-08-22 15:12:09.383  INFO 11924 --- [currency1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-currency1-1, groupId=currency1] Seeking to EARLIEST offset of partition currency-0
+2022-08-22 15:12:09.412  INFO 11924 --- [currency1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-currency1-1, groupId=currency1] Resetting offset for partition currency-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 1.0, KeyUSD
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {USD=1.0}
+2022-08-22 15:21:07.411  INFO 11924 --- [currency1-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-currency1-1, groupId=currency1] Node -1 disconnected.
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 0.782, KeyGBP
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {GBP=0.782, USD=1.0}
+```
+<img width="1198" alt="Screenshot 2022-08-22 at 3 35 26 PM" src="https://user-images.githubusercontent.com/54174687/185895999-ff5b3b9d-97fc-49d6-9876-7ca034d47068.png">
+
+---------
+
+
+
+
