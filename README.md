@@ -71,6 +71,38 @@ curl -X POST http://localhost:8080/update/GBP/782
 
 ---------
 
+curl -X POST http://localhost:8080/update/EUR/800
+
+```
+2022-08-22 15:12:09.412  INFO 11924 --- [currency1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-currency1-1, groupId=currency1] Resetting offset for partition currency-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 1.0, KeyUSD
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {USD=1.0}
+2022-08-22 15:21:07.411  INFO 11924 --- [currency1-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-currency1-1, groupId=currency1] Node -1 disconnected.
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 0.782, KeyGBP
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {GBP=0.782, USD=1.0}
+2022-08-22 15:38:59.033  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 0.8, KeyEUR
+2022-08-22 15:38:59.034  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {EUR=0.8, GBP=0.782, USD=1.0}
+```
+
+<img width="1140" alt="Screenshot 2022-08-22 at 3 40 43 PM" src="https://user-images.githubusercontent.com/54174687/185897042-c7299842-ec55-407a-b1d8-dd7007d0bcc9.png">
+
+---------
+
+curl -X POST http://localhost:8080/delete/EUR
+
+```
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 1.0, KeyUSD
+2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {USD=1.0}
+2022-08-22 15:21:07.411  INFO 11924 --- [currency1-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-currency1-1, groupId=currency1] Node -1 disconnected.
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 0.782, KeyGBP
+2022-08-22 15:34:35.421  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {GBP=0.782, USD=1.0}
+2022-08-22 15:38:59.033  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 0.8, KeyEUR
+2022-08-22 15:38:59.034  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {EUR=0.8, GBP=0.782, USD=1.0}
+2022-08-22 15:41:22.113  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: null, KeyEUR
+2022-08-22 15:41:22.121  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : Currencies now: {GBP=0.782, USD=1.0}
+```
+
+<img width="1190" alt="Screenshot 2022-08-22 at 3 42 10 PM" src="https://user-images.githubusercontent.com/54174687/185897295-61d979d1-2a9f-470f-9ccf-3de11fcdcd5d.png">
 
 
 
