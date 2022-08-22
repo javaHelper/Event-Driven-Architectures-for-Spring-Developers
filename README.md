@@ -46,7 +46,7 @@ curl -X POST http://localhost:8080/update/USD/1000
 
 <img width="1193" alt="Screenshot 2022-08-22 at 3 26 00 PM" src="https://user-images.githubusercontent.com/54174687/185894207-231eb0a6-1919-4b22-8896-276f0b49ac00.png">
 
-```json
+```
 2022-08-22 15:12:09.383  INFO 11924 --- [currency1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-currency1-1, groupId=currency1] Seeking to EARLIEST offset of partition currency-0
 2022-08-22 15:12:09.412  INFO 11924 --- [currency1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-currency1-1, groupId=currency1] Resetting offset for partition currency-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
 2022-08-22 15:12:37.389  INFO 11924 --- [currency1-0-C-1] com.example.consumer.KafkaConsumer       : === Rate: 1.0, KeyUSD
@@ -54,3 +54,4 @@ curl -X POST http://localhost:8080/update/USD/1000
 2022-08-22 15:21:07.411  INFO 11924 --- [currency1-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-currency1-1, groupId=currency1] Node -1 disconnected.
 ```
 
+---------
