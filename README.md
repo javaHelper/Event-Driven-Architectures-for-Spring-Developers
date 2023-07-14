@@ -18,16 +18,17 @@ server_id=1
 log-bin=master
 ```
 
-
+- Execute below on mysql
+- 
 ```sh
-mysql> CREATE USER 'maxwell'@'%' IDENTIFIED BY 'XXXXXX';
-mysql> CREATE USER 'maxwell'@'localhost' IDENTIFIED BY 'XXXXXX';
+CREATE USER 'maxwell'@'%' IDENTIFIED BY 'maxwell';
+CREATE USER 'maxwell'@'localhost' IDENTIFIED BY 'maxwell';
 
-mysql> GRANT ALL ON maxwell.* TO 'maxwell'@'%';
-mysql> GRANT ALL ON maxwell.* TO 'maxwell'@'localhost';
+GRANT ALL ON maxwell.* TO 'maxwell'@'%';
+GRANT ALL ON maxwell.* TO 'maxwell'@'localhost';
 
-mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'maxwell'@'%';
-mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'maxwell'@'localhost';
+GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'maxwell'@'%';
+GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'maxwell'@'localhost';
 ```
 
 # Start MAxwell
